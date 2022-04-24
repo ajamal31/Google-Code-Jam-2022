@@ -3,11 +3,13 @@ import sys
 
 builtin_input = input
 
+
 def input():
     line = builtin_input()
     if line == "-1":
         sys.exit(0)
     return line
+
 
 def solve():
     word = input()
@@ -22,7 +24,7 @@ def solve():
         else:
             counts[-1] += 1
 
-    for i in range(len(letters)-1):
+    for i in range(len(letters) - 1):
         if letters[i] < letters[i + 1]:
             counts[i] *= 2
         result.append(letters[i] * counts[i])
@@ -30,6 +32,7 @@ def solve():
     result.append(letters[-1] * counts[-1])
 
     return ''.join(result)
+
 
 for i in range(int(input())):
     print(f'Case #{i + 1}: {solve()}')
